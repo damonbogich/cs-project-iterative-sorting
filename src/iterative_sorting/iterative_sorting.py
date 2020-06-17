@@ -3,7 +3,7 @@ def selection_sort(arr):
     # loop through n-1 elements
     
     #looping through indexes
-    for i in range(0, len(arr) - 1):
+    for i in range(0, len(arr) ):
 
         #steps:
         # 1. set current index to first index
@@ -20,53 +20,66 @@ def selection_sort(arr):
         # ? how do i compare the first item in the list to the rest of the list until
         #smaller value is found
         #try looping through the rest of the list and comparing the values to smallest
-        for j in range(i + 1, len(arr) - 1):
+        for j in range(i + 1, len(arr) ):
             #check if each value is greater than smallest index 
             compare_index = j
             #does loop just iterate again if following if statement is not true?
             #assuming yes for now
             if arr[compare_index] < arr[smallest_index]:
-                #then we want to set index of compare to value of smallest index
+               
+                smallest_index = compare_index 
                 
-                
-                smallest_index = compare_index #smallest_index = 7 
-                #need to also put value of former smallest index to index 7
-                #and we want arr[j] to compare to the remainder of the list
-        # arr[compare_index] = arr[]
+        smallest_value = arr[smallest_index]
+        current_value = arr[current_index]
+
+        arr[current_index] = smallest_value
+        arr[smallest_index] = current_value
         
-        arr[current_index] = arr[smallest_index]
-        
-        
-                #how do i make sure that new smallest index now is picking up where
-                #old smallest index left off????
-
-
-            #trying to set up logic for when smallest index makes it to the end of list
-            #want to set it to the first item of the list and then repeat the process
-            
-                # then we want to set smallest index to the first item in array
-
-        # 4. if no smaller value is found then the first item in list should stay
-        # at index 0
-        # 5. if there is a smaller item found then current smallest index should swap
-        # with that smaller value
-
-        # 6. New smallest index goes through the if statements from steps 4 and 5
-
-        # 7. When smallest item is found it is set to the first item in array 
-
-        # 8. repeat process excluding the already set item in the array until all values 
-        # are in order
 
     return arr
+
+
+
+
+
 
 
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort(arr):
-    # Your code here
+    # first we want to compare the first and second items in the array
+    swap = True
+    #1. for loop through list
+    while swap is True:
+        swap = False
+        for i in range(0, len(arr) - 1):
+        #2. set current index to a variable
+            current_index = i
+        # compare arr[current_index] to the next value in array
+            if arr[current_index] > arr[current_index + 1]:
+                arr[current_index], arr[current_index + 1] = arr[current_index + 1], arr[current_index]
 
+                swap = True
+            # else: 
+            #     swap = False
+        
+            
+                
 
     return arr
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
 '''
 STRETCH: implement the Count Sort function below
